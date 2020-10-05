@@ -9,40 +9,54 @@
 
 /* Objective: Make a Paper-Rock-Scissors Game that outputs to console */
 
-// Generate Computer Selection
+// Generate Computer selection function
+
 function computerPlay() { 
     function getRandom(min,max) { 
     return Math.floor(Math.random() * (max-min) + min)
 };
     let result = getRandom(0,8); 
     if (result <= 2) { return ('rock');
-    } else if (result > 2 && result <= 5) { return('paper')
+    } else if (result > 2 && result <= 5) { 
+        return('paper')
     } else {return('scissors')
   }
 };
-// One example function
-function playRound(playerSelection, computerSelection) {
-   if (playerSelection == 'rock' && computerSelection == 'paper') {
-       return('Paper beats rock')
-   } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-       return('Rock beats scisssors')
-   } else {return('Rock equals Rock')}
+
+// Play function
+function playRound(playerSelection,computerSelection) {
+    if (playerSelection == 'rock') { 
+        if (computerSelection == 'paper') {
+            return('Rock is beaten by paper')
+        }
+        else if (computerSelection == 'scissors') {
+            return('Rock beats scissors')
+        }
+        else {return('Rock equals rock')};
+        }
+    else if (playerSelection == 'paper') { 
+        if (computerSelection == 'rock') {
+            return('Paper beats rock')
+        }
+        else if (computerSelection == 'scissors') {
+            return('Paper is beaten by scissors')
+        }
+        else {
+            return('Paper equals paper')
+        };
+    }
+    else if (playerSelection != 'scissors' || playerSelection == null) {
+        return('Not a valid answer');
+    }
+    else { 
+        if (computerSelection == 'rock') {
+            return ('Scissors is beaten by rock')}
+        else if (computerSelection == 'paper') {
+            return ('Scissors are beaten by paper')}
+        else {return('Scissors equals scissors')};
+    }
 };
-
-
-const playerSelection = 'rock'; // Rock is assigned
+const playerSelection = prompt();
 const computerSelection = computerPlay();
-console.log(computerSelection); // Test computerSelection
-console.log(playRound(playerSelection(), computerSelection));
-
-
-
-
-
-// Assign player selection, and computer selection
-
-
-
-// Five rounds
 
 </script>
