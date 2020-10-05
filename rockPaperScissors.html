@@ -8,9 +8,6 @@
 <script>
 
 /* Objective: Make a Paper-Rock-Scissors Game that outputs to console */
-
-// Generate Computer selection function
-
 function computerPlay() { 
     function getRandom(min,max) { 
     return Math.floor(Math.random() * (max-min) + min)
@@ -23,7 +20,6 @@ function computerPlay() {
   }
 };
 
-// Play function
 function playRound(playerSelection,computerSelection) {
     if (playerSelection == 'rock') { 
         if (computerSelection == 'paper') {
@@ -56,7 +52,19 @@ function playRound(playerSelection,computerSelection) {
         else {return('Scissors equals scissors')};
     }
 };
-const playerSelection = prompt();
-const computerSelection = computerPlay();
+
+function game() {
+    const playerSelection = prompt();
+    const computerSelection = computerPlay();
+    return(playRound(playerSelection,computerSelection))
+    console.log(game());
+};
+
+var  i;
+for (i = 0; i < 5; i++) {
+    console.log(game());
+};
+
+
 
 </script>
