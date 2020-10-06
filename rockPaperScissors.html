@@ -22,22 +22,22 @@ function computerPlay() {
 function playRound(playerSelection,computerSelection) {
     if (playerSelection == 'rock') { 
         if (computerSelection == 'paper') {
-            return('Rock is beaten by paper')
+            return(-1,'Rock is beaten by paper')
         }
         else if (computerSelection == 'scissors') {
-            return('Rock beats scissors')
+            return(1,'Rock beats scissors')
         }
-        else {return('Rock equals rock')};
+        else {return(0,'Rock equals rock')};
         }
     else if (playerSelection == 'paper') { 
         if (computerSelection == 'rock') {
-            return('Paper beats rock')
+            return(1,'Paper beats rock')
         }
         else if (computerSelection == 'scissors') {
-            return('Paper is beaten by scissors')
+            return(-1,'Paper is beaten by scissors')
         }
         else {
-            return('Paper equals paper')
+            return(0,'Paper equals paper')
         };
     }
     else if (playerSelection != 'scissors' || playerSelection == null) {
@@ -45,10 +45,10 @@ function playRound(playerSelection,computerSelection) {
     }
     else { 
         if (computerSelection == 'rock') {
-            return ('Scissors is beaten by rock')}
+            return (1,'Scissors is beaten by rock')}
         else if (computerSelection == 'paper') {
-            return ('Scissors are beaten by paper')}
-        else {return('Scissors equals scissors')};
+            return (-1,'Scissors are beaten by paper')}
+        else {return(0,'Scissors equals scissors')};
     }
 };
 
@@ -58,8 +58,6 @@ function game() {
     return(playRound(playerSelection,computerSelection))
    
 };
-
-var  i;
 for (i = 0; i < 5; i++) {
     console.log(game());
 };

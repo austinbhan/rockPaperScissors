@@ -53,10 +53,10 @@ function game() {
         console.log("Round" + round + ": " + result[1]);
         score = score + result[0];
     }
-    if (score > 0) {
+    if (score >= 3) {
         console.log("You win.")
     }
-    else if (score < 0) {
+    else if (score < 3) {
         console.log("You lose")
     } else {
         console.log("Tie.")
