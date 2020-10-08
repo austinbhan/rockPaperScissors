@@ -6,7 +6,7 @@
 
 <script>
 
-function computerPlay() { // Computer should randomly return rock paper scissors
+function computerPlay() { 
     switch (Math.floor(Math.random() * 3)) {
     case 0: return "rock"
     case 1: return "paper"
@@ -14,8 +14,9 @@ function computerPlay() { // Computer should randomly return rock paper scissors
     }
 };
 
-function playerPlay() { // Player selection input, add failsafe for caps
+function playerPlay() { 
     let playerChoice = prompt("Choose rock, paper, or scissors w/out caps");
+    playerChoice = playerChoice.toLowerCase();
     if (playerChoice != "rock" &&
         playerChoice != "paper" &&
         playerChoice != "scissors") {
