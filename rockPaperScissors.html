@@ -19,6 +19,14 @@ function computerPlay() {
   }
 };
 
+function playerPlay() {
+    let playerSelection = window.prompt("Paper, scissors or rock?")
+    if (playerSelection != "paper" && playerSelection != "rock" && playerSelection != "scissors") {
+        playerSelection = computerPlay();
+        window.confirm("You didn't type rock, paper or scissors. So let's choose " + playerSelection + ".")
+    }
+    return playerSelection;
+}
 function playRound(playerSelection,computerSelection) {
     if (playerSelection == 'rock') { 
         if (computerSelection == 'paper') {
@@ -29,6 +37,7 @@ function playRound(playerSelection,computerSelection) {
         }
         else {return(0,'Rock equals rock')};
         }
+
     else if (playerSelection == 'paper') { 
         if (computerSelection == 'rock') {
             return(1,'Paper beats rock')
@@ -40,9 +49,11 @@ function playRound(playerSelection,computerSelection) {
             return(0,'Paper equals paper')
         };
     }
+
     else if (playerSelection != 'scissors' || playerSelection == null) {
         return('Not a valid answer');
     }
+
     else { 
         if (computerSelection == 'rock') {
             return (1,'Scissors is beaten by rock')}
@@ -53,7 +64,7 @@ function playRound(playerSelection,computerSelection) {
 };
 
 function game() {
-    const playerSelection = prompt();
+    const playerSelection = playerPlay();
     const computerSelection = computerPlay();
     return(playRound(playerSelection,computerSelection))
    
