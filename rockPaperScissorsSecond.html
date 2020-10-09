@@ -13,7 +13,6 @@ function computerPlay() {
     case 2: return "scissors";
     }
 };
-console.log(computerPlay());
 
 function playerPlay() {
     let playerChoice = prompt("Rock, paper or scissors?");
@@ -31,10 +30,42 @@ function playerPlay() {
             playerChoice + " for you.")
             return playerChoice;
         }
-    
     return playerChoice
 }
 
-console.log(playerPlay());
+function playRound(playerSelection,computerSelection) {  
+    switch(playerSelection) {
+        case "rock":
+            switch(computerSelection) {
+                case "rock": return "Tie, rock equals rock"
+                break;
+                case "paper": return "You lose, paper beats rock"
+                break;
+                case "scissors": return "You win, rock beats scissors"
+            }
+        case "paper": 
+            switch(computerSelection) {
+                case "rock": return "You win, paper beats rock"
+                break;
+                case "paper": return "Tie, paper equals paper"
+                break;
+                case "scissors": return "You lose, scissors beats paper"
+            }
+        case "scissors":
+            switch(computerSelection) {
+                case "rock": return "You lose, rock beats scissors"
+                break;
+                case "paper": return "You win, scissors beats paper"
+                break;
+                case "scissors": return "Tie, scissors equals scissors"
+            }
+    }
+};
+
+for (i = 0; i < 5; i++) {
+    const playerSelection = playerPlay();
+    const computerSelection = computerPlay();
+    console.log(playRound(playerSelection,computerSelection));
+}
 
 </script>
