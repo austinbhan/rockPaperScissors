@@ -37,35 +37,47 @@ function playRound(playerSelection,computerSelection) {
     switch(playerSelection) {
         case "rock":
             switch(computerSelection) {
-                case "rock": return "Tie, rock equals rock"
+                case "rock": return ["Tie, rock equals rock", 0]
                 break;
-                case "paper": return "You lose, paper beats rock"
+                case "paper": return ["You lose, paper beats rock", 0]
                 break;
-                case "scissors": return "You win, rock beats scissors"
+                case "scissors": return ["You win, rock beats scissors", +1]
             }
         case "paper": 
             switch(computerSelection) {
-                case "rock": return "You win, paper beats rock"
+                case "rock": return ["You win, paper beats rock", +1]
                 break;
-                case "paper": return "Tie, paper equals paper"
+                case "paper": return ["Tie, paper equals paper", 0]
                 break;
-                case "scissors": return "You lose, scissors beats paper"
+                case "scissors": return ["You lose, scissors beats paper", 0]
             }
         case "scissors":
             switch(computerSelection) {
-                case "rock": return "You lose, rock beats scissors"
+                case "rock": return ["You lose, rock beats scissors", 0]
                 break;
-                case "paper": return "You win, scissors beats paper"
+                case "paper": return ["You win, scissors beats paper", +1]
                 break;
-                case "scissors": return "Tie, scissors equals scissors"
+                case "scissors": return ["Tie, scissors equals scissors", 0]
             }
-    }
+    }    
 };
 
+let score = 0;
 for (i = 0; i < 5; i++) {
     const playerSelection = playerPlay();
     const computerSelection = computerPlay();
-    console.log(playRound(playerSelection,computerSelection));
-}
+    let points = playRound(playerSelection,computerSelection)[1]
+    score += points;
+    
+    console.log(playRound(playerSelection,computerSelection)[0]);
+    
+} 
+
+if (score <= 2) {
+    console.log("Your final score is " + score + ", you lose")
+} else console.log("Your final score is " + score + ", you win")
+
+
+
 
 </script>
